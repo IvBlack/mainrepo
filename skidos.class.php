@@ -23,7 +23,6 @@ class Skidos{
         $this->setSize();
         $this->setDate_of_initialization();
         $this->setValidation();
-        $this->count_size();
     }
     
     function setSize($size){
@@ -47,11 +46,13 @@ $daily_skidos = new Skidos;
 $daily_skidos->size = "23%";
 $daily_skidos->date_of_initialization = "today";
 $daily_skidos->validation = "24 hours";
+$this->count_size();
 
 $weekly_skidos = new Skidos;
 $weekly_skidos->size = "13%";
 $weekly_skidos->date_of_initialization = "June, 21";
 $weekly_skidos->validation = "7 days";
+$this->count_size();
 
 
 /*class ChristmasSkidos extends Skidos{
