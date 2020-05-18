@@ -1,7 +1,7 @@
 <?php
 
-//Fatal error: Uncaught ArgumentCountError: Too few arguments to function Skidos::__construct(), 0 passed in D:\OSPanel\domains\localhost\skidos.class.php on line 45 and exactly 3 expected in D:\OSPanel\domains\localhost\skidos.class.php:21 Stack trace: #0 D:\OSPanel\domains\localhost\skidos.class.php(45): Skidos->__construct() #1 {main} thrown in D:\OSPanel\domains\localhost\skidos.class.php on line 21
-class Skidos{
+class Skidos
+{
     private $size;
     private $date_of_initialization;
     private $validation;
@@ -20,9 +20,9 @@ class Skidos{
     }
     
     function __construct($size, $date_of_initialization, $validation){
-        $this->setSize();
-        $this->setDate_of_initialization();
-        $this->setValidation();
+        $this->size = $size;
+        $this->date_of_initialization = $date_of_initialization ;
+        $this->validation = $validation;
     }
     
     function setSize($size){
@@ -42,16 +42,16 @@ class Skidos{
     }
 }
 
-$daily_skidos = new Skidos;
-$daily_skidos->size = "23%";
-$daily_skidos->date_of_initialization = "today";
-$daily_skidos->validation = "24 hours";
+$daily_skidos = new Skidos('23%', 'today', '24 hours');
+//$daily_skidos->size = "23%";
+//$daily_skidos->date_of_initialization = "today";
+//$daily_skidos->validation = "24 hours";
 $this->count_size();
 
-$weekly_skidos = new Skidos;
-$weekly_skidos->size = "13%";
-$weekly_skidos->date_of_initialization = "June, 21";
-$weekly_skidos->validation = "7 days";
+$weekly_skidos = new Skidos('13%', 'June, 21', '7 days');
+//$weekly_skidos->size = "13%";
+//$weekly_skidos->date_of_initialization = "June, 21";
+//$weekly_skidos->validation = "7 days";
 $this->count_size();
 
 
@@ -70,7 +70,7 @@ $this->count_size();
 }
     
 $a = new ChristmasSkidos("50%", "Jan, 1", "monthly");
-$a->count_size();//выводит ошибку syntax error, unexpected '$a' (T_VARIABLE), expecting function (T_FUNCTION)
+$a->count_size(); //выводит ошибку syntax error, unexpected '$a' (T_VARIABLE), expecting function (T_FUNCTION)
     
     class A {
 public function foo() {
