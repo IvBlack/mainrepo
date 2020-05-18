@@ -1,44 +1,46 @@
 <?php
-
 class Skidos
 {
     private $size;
     private $date_of_initialization;
     private $validation;
-    
-    
-    function getSize(){
+
+
+   /* function getSize(){
         return $this->size;
     }  
-     
+
     function getDate_of_initialization(){
         return $this->date_of_initialization; 
     }
-    
+
     function getValidation(){
         return $this->validation; 
     }
-    
+*/
     function __construct($size, $date_of_initialization, $validation){
-        $this->size = $size;
-        $this->date_of_initialization = $date_of_initialization ;
-        $this->validation = $validation;
+        $this->setSize($size);
+        $this->setDate_of_initialization($date_of_initialization);
+        $this->setValidation($validation);
+        $this->count_size();
     }
-    
+
     function setSize($size){
         $this->size = $size;
     }
-    
+
     function setDate_of_initialization($date_of_initialization){
         $this->date_of_initialization = $date_of_initialization;
     }
-    
+
     function setValidation($validation){
         $this->validation = $validation;
     }
-    
+
     function count_size(){
-        echo "Ваша скидка составит ".$this->size.", срок действия - ".$this->validation;
+        echo "Ваша скидка составит ".$this->size;
+            echo "<br>срок действия - ".$this->validation;
+        echo "<br>дата инициализации скидки - ".$this->date_of_initialization . "<br>";
     }
 }
 
@@ -46,13 +48,13 @@ $daily_skidos = new Skidos('23%', 'today', '24 hours');
 //$daily_skidos->size = "23%";
 //$daily_skidos->date_of_initialization = "today";
 //$daily_skidos->validation = "24 hours";
-$this->count_size();
+$daily_skidos->count_size();
 
 $weekly_skidos = new Skidos('13%', 'June, 21', '7 days');
 //$weekly_skidos->size = "13%";
 //$weekly_skidos->date_of_initialization = "June, 21";
 //$weekly_skidos->validation = "7 days";
-$this->count_size();
+$weekly_skidos->count_size();
 
 
 /*class ChristmasSkidos extends Skidos{
