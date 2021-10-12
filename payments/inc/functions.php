@@ -14,12 +14,12 @@ $data = [
 //если не пуст массив POST, то наши данные пришли из формы на сайте
 //ключи массива совпадают с именами полей формы
 if(!empty($_POST)){
-    require_once 'db.php';//подключение БД
-    $data = load($data);//массив POST  с данными от поекпателя
+    require_once 'db.php';              //подключение БД
+    $data = load($data);                //массив POST  с данными от покупателя
     debug($data);
-    $order_id = save('orders', $data);//сохраняет даные в тадлицу orders
-    setPaymentData($order_id);//записали в сессию id и цену товара
-    header('Location: pages/form.php');//редирект на страницу оплаты заказа
+    $order_id = save('orders', $data);  //сохраняет даные в таблицу 'orders' 
+    setPaymentData($order_id);          //записали в сессию id и цену товара
+    header('Location: pages/form.php'); //редирект на страницу оплаты заказа
     die;
    
 }
@@ -44,7 +44,7 @@ function load($data){
     return $data;
 }
 
-//сохранить данные с помощью REdBean, создаем бин
+//сохранить данные с помощью RedBean, создаем бин
 //вызываем метод dispence
 //записываем в объект $tbl данные из нашего, уже заполненного  массива
 function save($table, $data){
@@ -52,8 +52,8 @@ function save($table, $data){
     foreach($data as $k => $v){
         $tbl->$k = $v;
     }
-   return R::store($tbl);//метод сохраняет данные в $tbl, сохраняет id записи
-    //поэтому возвращем его в функцию для дальнейшего использования, строка 20
+   return R::store($tbl); //метод сохраняет данные в $tbl, сохраняет id записи
+                          //поэтому возвращем его в функцию для дальнейшего использования, строка 20
     
 }
 
